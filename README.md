@@ -1,5 +1,5 @@
 # Version
-### Simple package to set your app version on Bugsnag when deploying
+### Simple package to set your app version on Bugsnag in Laravel project when deploying
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tendersrl/bugsnag-deployer-recipe.svg?style=flat-square)](https://packagist.org/packages/tendersrl/bugsnag-deployer-recipe)
 [![Build Status](https://img.shields.io/travis/com/tendersrl/bugsnag-deployer-recipe/master.svg?style=flat-square)](https://travis-ci.com/tendersrl/bugsnag-deployer-recipe)
@@ -9,7 +9,7 @@
 
 ## Description
 
-This package provides a Deployer recipe to let you call Bugsnag ```php artisan bugsnag:deploy``` command when deploying.
+This package provides a Deployer recipe to let you call Bugsnag ```php artisan bugsnag:deploy``` command in your Laravel project when deploying.
 
 ## Install
 
@@ -19,6 +19,24 @@ Via Composer
 $ composer require tendersrl/bugsnag-deployer-recipe
 ```
 
+## Usage
+
+Add in your AppServiceProvider the app version ti report on Bugsnag, as described in [Bugsnag documentation](https://docs.bugsnag.com/platforms/php/laravel/#tracking-releases)
+
+``` php
+public function boot()
+{
+    Bugsnag::setAppVersion('v1.2.3');
+}
+```
+
+You don't need to register the ```DeployCommand``` command in your ```app/Console/Kernel.php``` file as this package do that for you.
+
+Lastly import the Recipe ```vendor/tendersrl/bugsnag-deployer-recipe/recipes/BugsnagRecipe.php``` in your ```deployer.php``` file.
+
+``` php
+require 'vendor/tendersrl/bugsnag-deployer-recipe/recipes/BugsnagRecipe.php';
+```
 
 ## Minimum requirements
 
