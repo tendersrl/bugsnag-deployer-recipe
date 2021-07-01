@@ -20,7 +20,7 @@ class BugsnagDeployerRecipeServiceProvider extends ServiceProvider
     protected function registerCommands(): void
     {
         $this->app->singleton('command.bugsnag:deploy', function () {
-            return new DeployCommand::class;
+            return new DeployCommand();
         });
 
         $this->commands([
