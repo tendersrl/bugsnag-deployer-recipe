@@ -30,7 +30,7 @@ public function boot()
 }
 ```
 
-You don't need to register the ```DeployCommand``` command in your ```app/Console/Kernel.php``` file as this package do that for you.
+**Note** You don't need to register the ```DeployCommand``` command in your ```app/Console/Kernel.php``` file as this package do that for you.
 
 Lastly import the Recipe ```vendor/tendersrl/bugsnag-deployer-recipe/recipes/BugsnagRecipe.php``` in your ```deployer.php``` file
 
