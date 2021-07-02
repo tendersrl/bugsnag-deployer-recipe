@@ -32,10 +32,16 @@ public function boot()
 
 You don't need to register the ```DeployCommand``` command in your ```app/Console/Kernel.php``` file as this package do that for you.
 
-Lastly import the Recipe ```vendor/tendersrl/bugsnag-deployer-recipe/recipes/BugsnagRecipe.php``` in your ```deployer.php``` file.
+Lastly import the Recipe ```vendor/tendersrl/bugsnag-deployer-recipe/recipes/BugsnagRecipe.php``` in your ```deployer.php``` file
 
 ``` php
 require 'vendor/tendersrl/bugsnag-deployer-recipe/recipes/BugsnagRecipe.php';
+```
+
+and add the task ```artisan:bugsnag:deploy``` as your last task (after deploy is done).
+
+``` php
+after('your:last:task', 'artisan:bugsnag:deploy');
 ```
 
 ## Minimum requirements
